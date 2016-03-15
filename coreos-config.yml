@@ -11,7 +11,7 @@ coreos:
 hostname: "coreos-host-1"
 
 write_files:
-  - path: "/etc/resov.conf"
+  - path: "/etc/resolv.conf"
     permissions: "0644"
     owner: "root"
     content: |
