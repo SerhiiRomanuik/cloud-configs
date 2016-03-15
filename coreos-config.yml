@@ -1,0 +1,19 @@
+#cloud-config
+coreos:
+	etcd2:
+		discovery: "https://discovery.etcd.io/<token>"
+		advertise-client-urls: "http://$public_ipv4:2379"
+    	initial-advertise-peer-urls: "http://$private_ipv4:2380"
+    fleet:
+    	public_ip: "$public_ipv4"
+    	metadata: role=kubernetes
+
+
+hostname: "coreos-host-1"
+
+write_files:
+	- path: "/etc/resov.conf"
+	permissions: "0644"
+	owner: "root"
+	content: |
+		nameserver 8.8.8.8
