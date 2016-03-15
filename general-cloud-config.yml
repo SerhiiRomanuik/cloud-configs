@@ -1,0 +1,14 @@
+#cloud-config
+manage-resolv-conf: true
+  nameservers: ['8.8.4.4', '8.8.8.8']
+  searchdomains:
+    - ayinla.com
+runcmd:
+  - sleep 10
+
+packages_upgrade: true
+packages:
+  - git
+  - ansible
+  - openssl-devel
+  - epel-release
