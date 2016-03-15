@@ -1,9 +1,10 @@
 #cloud-config
 manage-resolv-conf: true
-  nameservers: ['8.8.4.4', '8.8.8.8']
-  searchdomains:
-    - ayinla.com
-  domain: ayinla.com
+  resolv_conf:
+    nameservers: ['8.8.4.4', '8.8.8.8']
+    searchdomains:
+      - ayinla.com
+    domain: ayinla.com
   
 write_files:
   - path: "/etc/hosts"
