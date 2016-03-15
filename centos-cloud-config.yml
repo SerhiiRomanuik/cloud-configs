@@ -3,8 +3,15 @@ manage-resolv-conf: true
   nameservers: ['8.8.4.4', '8.8.8.8']
   searchdomains:
     - ayinla.com
+  domain: ayinla.com
+  
 runcmd:
   - sleep 10
+
+users:
+  - name: india
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh-authorized-keys: 
 
 packages_upgrade: true
 packages:
