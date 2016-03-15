@@ -1,4 +1,7 @@
 #cloud-config
+runcmd:
+  - sleep 10
+  
 manage-resolv-conf: true
   resolv_conf:
     nameservers: ['8.8.4.4', '8.8.8.8']
@@ -12,8 +15,6 @@ write_files:
       |
         10.0.0.200 openstack.ayinla.com
         10.0.0.109 fedora.ayinla.com
-runcmd:
-  - sleep 10
 
 users:
   - name: india
