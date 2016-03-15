@@ -10,6 +10,10 @@ coreos:
 
 hostname: "coreos-host-1"
 
+update:
+ reboot-strategy: best-effort
+ group: stable
+ 
 write_files:
   - path: "/etc/resolv.conf"
     permissions: "0644"
