@@ -12,3 +12,9 @@ packages:
   - ansible
   - openssl-devel
   - epel-release
+  - etcd
+  - kubernetes
+  - flannel
+  - vim
+  - ntp
+  
