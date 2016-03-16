@@ -24,14 +24,15 @@ write_files:
     permissions: "0644"
     owner: root:root
     content: |
+     search ayinla.com
+     domain ayinla.com
      nameserver 8.8.8.8
      nameserver 8.8.4.4
      
   - path: "/etc/hosts"
     permissions: "0644"
     owner: root:root
-    content:
-      |
-        10.0.0.200 openstack.ayinla.com
-        10.0.0.109 fedora.ayinla.com
+    content:  |
+      10.0.0.200 openstack.ayinla.com
+      10.0.0.109 fedora.ayinla.com
         
