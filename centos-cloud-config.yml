@@ -39,3 +39,4 @@ packages:
   - ntp
   - python-pip
   - ruby
+  - krb5-workstation
