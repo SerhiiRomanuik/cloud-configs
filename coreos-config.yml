@@ -42,3 +42,4 @@ write_files:
       10.0.0.200 openstack.ayinla.com
       10.0.0.109 fedora.ayinla.com
         
+# curl http://169.254.169.254/latest/meta-data/
