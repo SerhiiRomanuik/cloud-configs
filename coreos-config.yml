@@ -3,12 +3,18 @@ users:
   - name: india
     sudo: ALL=(ALL) NOPASSWD:ALL
     ssh-authorized-keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzugBoyAh99fdD1sX30TxvZzsfrKGG0VntnyeRZTQFC+TvnUSX2Kpq2imUPaDl+FGIaczN6ewAhx27RaRjcA4DnJ6f4L1DhZaMqkAuSSmdeFmYaOPGn/czLsHmGxbgKGdlFQhYNkHmw2gH3svcJ+L54E9ot/xiTpGs4kqXl7+qNPW35eZwodrGkaWoK44iMVAY8stYxO99/2ypgrwNp7sI+1cK4fISFEEqaqb1tgBkNCjJzXgJF8K5kAH/QxyMRQBk8atMcipNju7FKEfz7hkyU/6k0oJXLhAgnxqjdHlCqNCgfvBkrehc7H7iCY8g5NuWSpevAvAFRkXTPSKIFxH9 india@localhost.localdomain
+
+hostname: "$hostname"
+
 coreos:
   etcd2:
     discovery: "https://discovery.etcd.io/69298dfff54ec18d2c729f6b9ed7ab7c"
     advertise-client-urls: "http://$public_ipv4:2379"
     initial-advertise-peer-urls: "http://$private_ipv4:2380"
-    
+  fleet:
+    public-ip: "$public_ipv4"
+    metadata: "hostname=$hostname"
+      
   units:
     - name: etcd2.service
       command: start
