@@ -30,14 +30,14 @@ packages_upgrade: true
 packages:
   - epel-release
   - git
-  - ansible
+  #- ansible
   - openssl-devel
   - etcd
   - kubernetes
   - flannel
   - vim
   - ntp
-  - python-pip
+  #- python-pip
   - ruby
   - krb5-workstation
 power_state:
