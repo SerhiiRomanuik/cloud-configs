@@ -13,7 +13,7 @@ coreos:
     public_ip: "$public_ipv4"
     metadata: role=kubernetes
 
-hostname: "coreos-host-1"
+#hostname: "coreos-host-1"
 
 update:
  reboot-strategy: best-effort
