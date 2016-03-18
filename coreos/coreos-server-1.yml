@@ -12,10 +12,10 @@ hostname: "coreos-server-1"
 coreos:
   etcd2:
     discovery: "https://discovery.etcd.io/69298dfff54ec18d2c729f6b9ed7ab7c"
-    advertise-client-urls: "http://$public_ipv4:2379"
+    advertise-client-urls: "http://$private_ipv4:2379"
     initial-advertise-peer-urls: "http://$private_ipv4:2380"
   fleet:
-    public-ip: "$public_ipv4"
+    public-ip: "$private_ipv4"
     metadata: "hostname=coreos-server-1"
       
   units:
