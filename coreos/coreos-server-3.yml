@@ -7,11 +7,11 @@ users:
     ssh-authorized-keys: 
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzugBoyAh99fdD1sX30TxvZzsfrKGG0VntnyeRZTQFC+TvnUSX2Kpq2imUPaDl+FGIaczN6ewAhx27RaRjcA4DnJ6f4L1DhZaMqkAuSSmdeFmYaOPGn/czLsHmGxbgKGdlFQhYNkHmw2gH3svcJ+L54E9ot/xiTpGs4kqXl7+qNPW35eZwodrGkaWoK44iMVAY8stYxO99/2ypgrwNp7sI+1cK4fISFEEqaqb1tgBkNCjJzXgJF8K5kAH/QxyMRQBk8atMcipNju7FKEfz7hkyU/6k0oJXLhAgnxqjdHlCqNCgfvBkrehc7H7iCY8g5NuWSpevAvAFRkXTPSKIFxH9 india@localhost.localdomain
 
-hostname: "coreos-server-3"
+hostname: "coreos-server-3.ayinla.com"
 
 coreos:
   etcd2:
-    discovery: "https://discovery.etcd.io/69298dfff54ec18d2c729f6b9ed7ab7c"
+    discovery: "https://discovery.etcd.io/4be8f2caf8fe97ad12fa4d7d51b91991"
     advertise-client-urls: "http://$private_ipv4:2379"
     initial-advertise-peer-urls: "http://$private_ipv4:2380"
     listen-client-urls: "http://$private_ipv4:2379,http://$private_ipv4:4001"
