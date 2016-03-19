@@ -1,0 +1,45 @@
+#cloud-config
+runcmd:
+  - sleep 10
+  
+write_files:
+  - path: /etc/hosts
+    owner: root:root
+    permissions: '0644'
+    content:
+      |
+        10.0.0.200 openstack.ayinla.com
+        10.0.0.109 fedora.ayinla.com
+  - path: /etc/resolv.conf
+    owner: root:root
+    permissions: '0644'
+    content:
+      |
+        search ayinla.com
+        domain ayinla.com
+        nameserver 8.8.4.4
+        nameserver 8.8.8.8
+        
+users:
+  - name: india
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzugBoyAh99fdD1sX30TxvZzsfrKGG0VntnyeRZTQFC+TvnUSX2Kpq2imUPaDl+FGIaczN6ewAhx27RaRjcA4DnJ6f4L1DhZaMqkAuSSmdeFmYaOPGn/czLsHmGxbgKGdlFQhYNkHmw2gH3svcJ+L54E9ot/xiTpGs4kqXl7+qNPW35eZwodrGkaWoK44iMVAY8stYxO99/2ypgrwNp7sI+1cK4fISFEEqaqb1tgBkNCjJzXgJF8K5kAH/QxyMRQBk8atMcipNju7FKEfz7hkyU/6k0oJXLhAgnxqjdHlCqNCgfvBkrehc7H7iCY8g5NuWSpevAvAFRkXTPSKIFxH9 india@localhost.localdomain
+    shell: /bin/bash
+package_upgrade: true
+packages:
+  - epel-release
+  - git
+  #- ansible
+  - openssl-devel
+  - etcd
+  - kubernetes
+  - flannel
+  - vim
+  - ntp
+  #- python-pip
+  - ruby
+  - krb5-workstation
+power_state:
+  mode: reboot
