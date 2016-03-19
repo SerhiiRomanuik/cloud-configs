@@ -20,7 +20,7 @@ coreos:
   fleet:
     public-ip: "$private_ipv4"
     metadata: "hostname=coreos-server-3"
-    etcd_servers: "http://$private_ipv4:2379,http://127.0.0.1:2379"
+    etcd_servers: "http://127.0.0.1:2379,http://$private_ipv4:2379"
     verbosity: 2
       
   units:
