@@ -21,6 +21,7 @@ coreos:
     public-ip: "$private_ipv4"
     metadata: "hostname=coreos-server-1"
     etcd_servers: "http://$private_ipv4:2379,http://127.0.0.1:2379"
+    verbosity: 2
 
   units:
     - name: etcd2.service
