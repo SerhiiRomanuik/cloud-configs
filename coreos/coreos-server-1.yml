@@ -11,7 +11,7 @@ hostname: "coreos-server-1.ayinla.com"
 
 coreos:
   etcd2:
-    discovery: "https://discovery.etcd.io/1691e5a071f27d9a16d00f649a776943"
+    discovery: "https://discovery.etcd.io/ebebfddeb0fbc16bbb352b8ffb57e8da"
     advertise-client-urls: "http://$private_ipv4:2379"
     initial-advertise-peer-urls: "http://$private_ipv4:2380"
     listen-client-urls: "http://$private_ipv4:2379,http://$private_ipv4:4001,http://127.0.0.1:2379,http://127.0.0.1:4001"
@@ -19,7 +19,7 @@ coreos:
     
   fleet:
     public-ip: "$private_ipv4"
-    metadata: "hostname=coreos-server-1"
+  #  metadata: "hostname=coreos-server-1"
     
   units:
     - name: etcd2.service
@@ -51,9 +51,11 @@ write_files:
     owner: root:root
     mode: 0644
     content: |
-      etcd_servers=["http://127.0.0.1:2379", "http://127.0.0.1:4001"]
+      etcd_servers=["http://127.0.0.1:2379"]
       verbosity=3
-      agent_ttl="30s"
+      #agent_ttl="30s"
+      #public-ip="$private_ipv4"
+      metadata="hostname=coreos-server-1"
 
 # 127.0.0.1  coreos-server-1.ayinla.com
         
