@@ -38,6 +38,11 @@ write_files:
       FLANNEL_ETCD="http://kube-master:4001"
       FLANNEL_ETCD_KEY="/flannel/network"
       #FLANNEL_OPTIONS=""
+  - path: /run/systemd/system/controller-manager.service.d/drop-in.conf
+    content: |
+      KUBELET_ADDRESSES="--machines=kube-minion1, kube-minion2"
+      KUBE_CONTROLLER_MANAGER_ARGS=""
+      
   - path: /run/systemd/system/etcd.service.d/drop-in.conf
     owner: root:root
     content: |
