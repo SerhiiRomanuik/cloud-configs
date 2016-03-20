@@ -31,15 +31,14 @@ package_upgrade: true
 packages:
   - epel-release
   - git
-  #- ansible
   - openssl-devel
-  - etcd
+  - docker
   - kubernetes
   - flannel
   - vim
   - ntp
-  #- python-pip
   - ruby
   - krb5-workstation
+  
 power_state:
   mode: reboot
