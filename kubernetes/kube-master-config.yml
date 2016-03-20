@@ -48,3 +48,5 @@ packages:
   - krb5-workstation
 power_state:
   mode: reboot
+  
+  #/run/systemd/system/fleet.service.d
