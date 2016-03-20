@@ -11,7 +11,7 @@ users:
 
 coreos:
   etcd2:
-    discovery: "https://discovery.etcd.io/c2cec3eece7bb71bfa988319cbda755c"
+    discovery: "https://discovery.etcd.io/257cffd3bbe8e6453e4206eaf6bf3c1e"
     advertise-client-urls: "http://$private_ipv4:2379"
     initial-advertise-peer-urls: "http://$private_ipv4:2380"
     listen-client-urls: "http://$private_ipv4:2379,http://$private_ipv4:4001,http://127.0.0.1:2379,http://127.0.0.1:4001"
@@ -60,3 +60,4 @@ write_files:
 # 127.0.0.1  coreos-server-1.ayinla.com
         
 # curl http://169.254.169.254/latest/meta-data/
+# https://discovery.etcd.io/new?size=3
