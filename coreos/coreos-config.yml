@@ -53,9 +53,9 @@ write_files:
     content: |
       etcd_servers=["http://127.0.0.1:2379"]
       verbosity=3
-      #agent_ttl="30s"
-      #public-ip="$private_ipv4"
-      #metadata="hostname=coreos-server-1"
+      agent_ttl="30s"
+      public-ip="$private_ipv4"
+      #metadata=$(hostname)
 
 # 127.0.0.1  coreos-server-1.ayinla.com
         
