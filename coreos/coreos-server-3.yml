@@ -49,6 +49,11 @@ write_files:
     content:  |
       10.0.0.200 openstack.ayinla.com
       10.0.0.109 fedora.ayinla.com
+ - path: /etc/fleet/fleet.conf
+    content: |
+      etcd_servers=["http://127.0.0.1:2379", "http://127.0.0.1:4001"]
+      verbosity=3
+      agent_ttl="30s"
       
 # 127.0.0.1  coreos-server-1.ayinla.com
         
