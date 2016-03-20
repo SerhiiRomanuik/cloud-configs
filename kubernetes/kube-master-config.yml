@@ -32,7 +32,12 @@ write_files:
       KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
       KUBE_ADMISSION_CONTROL="--admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
       KUBE_API_ARGS=""
-      
+  
+  - path: /run/systemd/system/flanneld.service.d/drop-in.conf
+    content: |
+      FLANNEL_ETCD="http://kube-master:4001"
+      FLANNEL_ETCD_KEY="/flannel/network"
+      #FLANNEL_OPTIONS=""
   - path: /run/systemd/system/etcd.service.d/drop-in.conf
     owner: root:root
     content: |
