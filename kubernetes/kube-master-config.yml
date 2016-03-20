@@ -1,13 +1,16 @@
 #cloud-config
 runcmd:
   - sleep 10
+  - systemctl enable etcd.service
+  - systemctl enable kube-apiserver
+  - systemctl enable kube-controller-manager
+  - systemctl enable kube-scheduler
   
 write_files:
   - path: /etc/hosts
     owner: root:root
     permissions: '0644'
-    content:
-      |
+    content:|
         10.0.0.200 openstack.ayinla.com
         10.0.0.109 fedora.ayinla.com
         127.0.0..1 kube-master
@@ -15,15 +18,30 @@ write_files:
   - path: /etc/resolv.conf
     owner: root:root
     permissions: '0644'
-    content:
-      |
+    content:|
         search ayinla.com
         domain ayinla.com
         nameserver 8.8.4.4
         nameserver 8.8.8.8
-  
-  #- path: /etc/etcd/etcd.conf
-  #- path: /etc/kubernetes/apiserver
+  - path: /run/systemd/system/kube-apiserver.service.d/drop-in.conf
+    content: |
+      KUBE_API_ADDRESS="--address=0.0.0.0"
+      KUBE_API_PORT="--port=8080"
+      KUBELET_PORT="--kubelet_port=10250"
+      KUBE_ETCD_SERVERS="--etcd_servers=http://127.0.0.1:2379"
+      KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
+      KUBE_ADMISSION_CONTROL="--admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
+      KUBE_API_ARGS=""
+      
+  - path: /run/systemd/system/etcd.service.d/drop-in.conf
+    owner: root:root
+    content: |
+      ETCD_NAME=default
+      ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
+      ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
+      ETCD_ADVERTISE_CLIENT_URLS="http://127.0.0.1:2379"
+    
+   #- path: /etc/kubernetes/apiserver
   #- path: /etc/kubernetes/config
         
 users:
