@@ -19,7 +19,7 @@ coreos:
     
   fleet:
     public-ip: "$private_ipv4"
-    metadata: "hostname=coreos-server-3"
+    
 
   units:
     - name: etcd2.service
@@ -53,8 +53,10 @@ write_files:
     permissions: "0644"
     content: |
       etcd_servers=["http://127.0.0.1:2379"]
+      public-ip="$private_ipv4"
       verbosity=3
       #agent_ttl="30s"
+      metadata="hostname=coreos-server-3"
       
 # 127.0.0.1  coreos-server-1.ayinla.com
         
