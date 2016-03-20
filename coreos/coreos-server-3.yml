@@ -11,7 +11,7 @@ hostname: "coreos-server-3.ayinla.com"
 
 coreos:
   etcd2:
-    discovery: "https://discovery.etcd.io/1691e5a071f27d9a16d00f649a776943"
+    discovery: "https://discovery.etcd.io/ebebfddeb0fbc16bbb352b8ffb57e8da"
     advertise-client-urls: "http://$private_ipv4:2379"
     initial-advertise-peer-urls: "http://$private_ipv4:2380"
     listen-client-urls: "http://$private_ipv4:2379,http://$private_ipv4:4001,http://127.0.0.1:2379,http://127.0.0.1:4001"
@@ -47,11 +47,14 @@ write_files:
     content:  |
       10.0.0.200 openstack.ayinla.com
       10.0.0.109 fedora.ayinla.com
+      
  - path: /etc/fleet/fleet.conf
+    owner: root:root
+    permissions: "0644"
     content: |
-      etcd_servers=["http://127.0.0.1:2379", "http://127.0.0.1:4001"]
+      etcd_servers=["http://127.0.0.1:2379"]
       verbosity=3
-      agent_ttl="30s"
+      #agent_ttl="30s"
       
 # 127.0.0.1  coreos-server-1.ayinla.com
         
