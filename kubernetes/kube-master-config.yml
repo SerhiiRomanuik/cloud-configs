@@ -24,6 +24,7 @@ write_files:
         nameserver 8.8.4.4
         nameserver 8.8.8.8
   - path: /run/systemd/system/kube-apiserver.service.d/drop-in.conf
+    permissions: '0644'
     content: |
       KUBE_API_ADDRESS="--address=0.0.0.0"
       KUBE_API_PORT="--port=8080"
@@ -34,16 +35,20 @@ write_files:
       KUBE_API_ARGS=""
   
   - path: /run/systemd/system/flanneld.service.d/drop-in.conf
+    permissions: '0644'
     content: |
       FLANNEL_ETCD="http://kube-master:4001"
       FLANNEL_ETCD_KEY="/flannel/network"
       #FLANNEL_OPTIONS=""
+      
   - path: /run/systemd/system/controller-manager.service.d/drop-in.conf
+    permissions: '0644'
     content: |
       KUBELET_ADDRESSES="--machines=kube-minion1, kube-minion2"
       KUBE_CONTROLLER_MANAGER_ARGS=""
       
   - path: /run/systemd/system/etcd.service.d/drop-in.conf
+    permissions: '0644'
     owner: root:root
     content: |
       ETCD_NAME=default
