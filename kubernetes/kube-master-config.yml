@@ -1,6 +1,7 @@
 #cloud-config
 runcmd:
   - sleep 10
+  - systemctl daemon-reload
   - systemctl enable etcd.service
   - systemctl enable kube-apiserver
   - systemctl enable kube-controller-manager
@@ -26,6 +27,7 @@ write_files:
   - path: /run/systemd/system/kube-apiserver.service.d/drop-in.conf
     permissions: '0644'
     content: |
+      [Service]
       KUBE_API_ADDRESS="--address=0.0.0.0"
       KUBE_API_PORT="--port=8080"
       KUBELET_PORT="--kubelet_port=10250"
@@ -44,6 +46,7 @@ write_files:
   - path: /run/systemd/system/controller-manager.service.d/drop-in.conf
     permissions: '0644'
     content: |
+      [Service]
       KUBELET_ADDRESSES="--machines=kube-minion1, kube-minion2"
       KUBE_CONTROLLER_MANAGER_ARGS=""
       
@@ -51,6 +54,7 @@ write_files:
     permissions: '0644'
     owner: root:root
     content: |
+      [Service]
       ETCD_NAME=default
       ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
       ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
