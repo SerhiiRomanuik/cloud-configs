@@ -24,7 +24,7 @@ write_files:
         domain ayinla.com
         nameserver 8.8.4.4
         nameserver 8.8.8.8
-  - path: /run/systemd/system/kube-apiserver.service.d/drop-in.conf
+  - path: /etc/systemd/system/kube-apiserver.service.d/drop-in.conf
     permissions: '0644'
     content: |
       [Service]
@@ -36,7 +36,7 @@ write_files:
       Environment=KUBE_ADMISSION_CONTROL="--admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
       Environment=KUBE_API_ARGS=""
   
-  - path: /run/systemd/system/flanneld.service.d/drop-in.conf
+  - path: /etc/systemd/system/flanneld.service.d/drop-in.conf
     permissions: '0644'
     content: |
       [Service]
@@ -44,14 +44,14 @@ write_files:
       Environment="FLANNEL_ETCD_KEY=/flannel/network"
       #FLANNEL_OPTIONS=""
       
-  - path: /run/systemd/system/controller-manager.service.d/drop-in.conf
+  - path: /etc/systemd/system/controller-manager.service.d/drop-in.conf
     permissions: '0644'
     content: |
       [Service]
       Environment=KUBELET_ADDRESSES="--machines=kube-minion1, kube-minion2"
       Environment=KUBE_CONTROLLER_MANAGER_ARGS=""
       
-  - path: /run/systemd/system/etcd.service.d/drop-in.conf
+  - path: /etc/systemd/system/etcd.service.d/drop-in.conf
     permissions: '0644'
     owner: root:root
     content: |
