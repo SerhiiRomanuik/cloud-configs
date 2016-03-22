@@ -26,6 +26,7 @@ write_files:
         nameserver 8.8.8.8
   - path: /etc/systemd/system/kube-apiserver.service.d/drop-in.conf
     permissions: '0644'
+    owner: root:root
     content: |
       [Service]
       Environment=KUBE_API_ADDRESS="--address=0.0.0.0"
