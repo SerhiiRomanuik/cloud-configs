@@ -2,6 +2,7 @@
 runcmd:
   #- sleep 10
   - systemctl daemon-reload
+  - systemctl enable docker
   - systemctl enable etcd.service; systemctl start etcd.service
   - systemctl enable kube-apiserver; systemctl start kube-apiserver
   - systemctl enable kube-controller-manager; systemctl start kube-controller-manager
