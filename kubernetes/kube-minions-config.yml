@@ -14,6 +14,9 @@ write_files:
       |
         10.0.0.200 openstack.ayinla.com
         10.0.0.109 fedora.ayinla.com
+        127.0.0.1  localhost
+        10.0.0.237 kube-master
+        
   - path: /etc/resolv.conf
     owner: root:root
     permissions: '0644'
