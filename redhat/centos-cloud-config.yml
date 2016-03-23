@@ -31,7 +31,7 @@ package_upgrade: true
 packages:
   - epel-release
   - git
-  #- ansible
+  - kernel-devel
   - openssl-devel
   - etcd
   - kubernetes
