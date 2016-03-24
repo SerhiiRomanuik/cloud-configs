@@ -38,7 +38,7 @@ packages:
   - flannel
   - vim
   - ntp
-  #- python-pip
+  - "Development tools" 
   - ruby
   - krb5-workstation
 power_state:
