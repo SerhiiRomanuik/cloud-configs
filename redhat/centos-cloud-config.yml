@@ -1,4 +1,5 @@
 #cloud-config
+datasource: [ Openstack ]
 runcmd:
   - sleep 10
   - yum groupinstall "Development tools" -y
@@ -11,7 +12,7 @@ write_files:
       |
         10.0.0.200 openstack.ayinla.com
         10.0.0.109 fedora.ayinla.com
-        $LOCAL_IPV4 $LOCAL_HOSTNAME
+        "$LOCAL_IPV4" "$LOCAL_HOSTNAME"
   - path: /etc/resolv.conf
     owner: root:root
     permissions: '0644'
