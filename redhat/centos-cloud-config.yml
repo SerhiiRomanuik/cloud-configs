@@ -44,6 +44,7 @@ packages:
   - ntp
   - ruby
   - krb5-workstation
+  - curl
 
 power_state:
   mode: reboot
