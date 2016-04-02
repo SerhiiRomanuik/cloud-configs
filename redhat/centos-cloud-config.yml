@@ -44,7 +44,8 @@ packages:
   - ntp
   - ruby
   - krb5-workstation
-  - curl
+  - wget
+  - pam_krb5
 
 power_state:
   mode: reboot
