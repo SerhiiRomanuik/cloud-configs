@@ -31,13 +31,12 @@ users:
 package_upgrade: true
 packages:
   - git
-  #- ansible
   - etcd
   - kubernetes
   - flannel
   - vim
   - ntp
-  #- python-pip
+  - python-pip
   - ruby
   - krb5-workstation
 power_state:
