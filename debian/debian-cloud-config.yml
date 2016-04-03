@@ -31,13 +31,11 @@ users:
 package_upgrade: true
 packages:
   - git
-  - etcd
-  - kubernetes
-  - flannel
+  - wget
   - vim
   - ntp
   - python-pip
   - ruby
-  - krb5-workstation
+  
 power_state:
   mode: reboot
