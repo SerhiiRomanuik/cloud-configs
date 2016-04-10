@@ -60,17 +60,17 @@ resources:
     properties:
       pool: external_network
       
-  association:
+  association1:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip1 }
       server_id: { get_resource: inst1}
-  association:
+  association2:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip2 }
       server_id: { get_resource: inst2}
-  association:
+  association3:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip3 }
