@@ -6,7 +6,7 @@ resources:
   kube-master:
     type: OS::Nova::Server
     properties:
-      name: rhce-server-1
+      name: kube-master
       security_groups:
         - default
       key_name: cloudkey
@@ -65,14 +65,14 @@ resources:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip1 }
-      server_id: { get_resource: inst1}
+      server_id: { get_resource:  kube-master}
   association2:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip2 }
-      server_id: { get_resource: inst2}
+      server_id: { get_resource: kube-node-1}
   association3:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip3 }
-      server_id: { get_resource: inst3}
+      server_id: { get_resource: kube-node-2}
