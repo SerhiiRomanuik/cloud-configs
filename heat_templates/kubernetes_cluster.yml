@@ -14,7 +14,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/centos-cloud-config.yml
+        get_file: http://10.0.0.109/kubernetes/kube-master-config.yml
       networks:
         - network: private_network
 
@@ -29,7 +29,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/centos-cloud-config.yml
+        get_file: http://10.0.0.109/kubernetes/kube-minions-config.yml
       networks:
         - network: private_network
   
@@ -44,7 +44,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/centos-cloud-config.yml
+        get_file: http://10.0.0.109/kubernetes/kube-minions-config.yml
       networks:
         - network: private_network
   
