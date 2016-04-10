@@ -2,8 +2,26 @@ heat_template_version: 2015-10-15
 description: create a server
 
 resources:
-      
   inst1:
+    type: OS::Nova::Server
+    properties:
+      name: rhce-server-1
+      security_groups:
+        - default
+      key_name: cloudkey
+      flavor: m1.medium
+      image: centos-7
+      user_data_format: RAW
+      user_data:
+        get_file: http://10.0.0.109/centos-cloud-config.yml
+      networks:
+        - network: private_network
+  floating_ip:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: external_network
+      
+  inst2:
     type: OS::Nova::Server
     properties:
       name: rhce-server-2
@@ -15,16 +33,45 @@ resources:
       user_data_format: RAW
       user_data:
         get_file: http://10.0.0.109/centos-cloud-config.yml
-          
       networks:
         - network: private_network
   floating_ip:
     type: OS::Nova::FloatingIP
     properties:
       pool: external_network
-
+  
+  inst1:
+    type: OS::Nova::Server
+    properties:
+      name: rhce-server-3
+      security_groups:
+        - default
+      key_name: cloudkey
+      flavor: m1.medium
+      image: centos-7
+      user_data_format: RAW
+      user_data:
+        get_file: http://10.0.0.109/centos-cloud-config.yml
+      networks:
+        - network: private_network
+  
+  floating_ip:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: external_network
+      
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip }
       server_id: { get_resource: inst1}
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip }
+      server_id: { get_resource: inst2}
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip }
+      server_id: { get_resource: inst3}
