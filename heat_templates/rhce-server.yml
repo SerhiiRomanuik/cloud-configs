@@ -55,7 +55,15 @@ resources:
       networks:
         - network: private_network
   
-  floating_ip:
+  floating_ip1:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: external_network
+  floating_ip2:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: external_network
+  floating_ip3:
     type: OS::Nova::FloatingIP
     properties:
       pool: external_network
@@ -63,15 +71,15 @@ resources:
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
-      floating_ip: { get_resource: floating_ip }
+      floating_ip: { get_resource: floating_ip1 }
       server_id: { get_resource: inst1}
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
-      floating_ip: { get_resource: floating_ip }
+      floating_ip: { get_resource: floating_ip2 }
       server_id: { get_resource: inst2}
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
-      floating_ip: { get_resource: floating_ip }
+      floating_ip: { get_resource: floating_ip3 }
       server_id: { get_resource: inst3}
