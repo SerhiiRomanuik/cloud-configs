@@ -65,15 +65,15 @@ resources:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip1 }
-      server_id: { get_resource:  kube-master}
+      server_id: { get_resource:  node-1}
   association2:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip2 }
-      server_id: { get_resource: kube-node-1}
+      server_id: { get_resource: node-2}
   association3:
     type: OS::Nova::FloatingIPAssociation
     properties:
       floating_ip: { get_resource: floating_ip3 }
-      server_id: { get_resource: kube-node-2}
+      server_id: { get_resource: node-3}
 
