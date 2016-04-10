@@ -11,7 +11,7 @@ resources:
         - default
       key_name: cloudkey
       flavor: m1.medium
-      image: centos-7
+      image: CoreOS
       user_data_format: RAW
       user_data:
         get_file: http://10.0.0.109/cloud-configs/coreos/coreos-config.yml
@@ -26,7 +26,7 @@ resources:
         - default
       key_name: cloudkey
       flavor: m1.medium
-      image: centos-7
+      image: CoreOS
       user_data_format: RAW
       user_data:
         get_file: http://10.0.0.109/cloud-configs/coreos/coreos-config.yml
@@ -41,7 +41,7 @@ resources:
         - default
       key_name: cloudkey
       flavor: m1.medium
-      image: centos-7
+      image: CoreOS
       user_data_format: RAW
       user_data:
         get_file: http://10.0.0.109/cloud-configs/coreos/coreos-config.yml
