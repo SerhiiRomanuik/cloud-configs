@@ -1,7 +1,7 @@
 #cloud-config
 datasource_list: [ Openstack ]
 runcmd:
-  - sleep 10
+  - sleep 5
   - yum groupinstall "Development tools" -y
   
 write_files:
@@ -11,9 +11,7 @@ write_files:
     content:
       |
         10.0.0.200 openstack.ayinla.com
-        10.0.0.109 fedora.ayinla.com
-        # "$LOCAL-IPV4" "$HOSTNAME"
-        
+
   - path: /etc/resolv.conf
     owner: root:root
     permissions: '0644'
@@ -21,7 +19,7 @@ write_files:
       |
         search ayinla.com
         domain ayinla.com
-        nameserver 8.8.4.4
+        nameserver 10.0.0.200
         nameserver 8.8.8.8
         
 users:
