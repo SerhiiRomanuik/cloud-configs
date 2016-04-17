@@ -45,6 +45,6 @@ packages:
   - krb5-workstation
   - pam_krb5
   - haveged
-
+  - rng-tools
 power_state:
   mode: reboot
