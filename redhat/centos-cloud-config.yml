@@ -41,9 +41,10 @@ packages:
   - vim
   - ntp
   - ruby
-  - krb5-workstation
   - wget
+  - krb5-workstation
   - pam_krb5
+  - haveged
 
 power_state:
   mode: reboot
