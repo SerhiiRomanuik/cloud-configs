@@ -1,5 +1,5 @@
 #cloud-config
-datasource_list: [ Openstack ]
+
 runcmd:
   - sleep 5
   - yum groupinstall "Development tools" -y
