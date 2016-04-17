@@ -3,6 +3,7 @@ datasource_list: [ Openstack ]
 runcmd:
   - sleep 5
   - yum groupinstall "Development tools" -y
+  - systemctl enable haveged; systemctl start haveged
   
 write_files:
   - path: /etc/hosts
