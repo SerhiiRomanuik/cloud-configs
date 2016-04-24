@@ -1,7 +1,5 @@
 #cloud-config
-
 runcmd:
-  - sleep 5
   - yum groupinstall "Development tools" -y
   - systemctl enable haveged; systemctl start haveged
   
