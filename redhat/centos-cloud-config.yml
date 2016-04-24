@@ -47,5 +47,7 @@ packages:
   - pam_krb5
   - haveged
   - rng-tools
+  - firewalld.noarch
+  - NetworkManager
 power_state:
   mode: reboot
