@@ -9,6 +9,7 @@ write_files:
     permissions: '0644'
     content:
       |
+        127.0.0.1  localhost
         10.0.0.200 openstack.ayinla.com
 
   - path: /etc/resolv.conf
