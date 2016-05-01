@@ -1,5 +1,5 @@
 heat_template_version: 2015-10-15
-description: create a server
+description: create rhce servers
 
 resources:
   inst1:
