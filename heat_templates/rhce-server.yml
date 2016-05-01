@@ -34,7 +34,7 @@ resources:
   inst3:
     type: OS::Nova::Server
     properties:
-      name: rhce-server-2
+      name: rhce-server-3
       security_groups:
         - default
       key_name: cloudkey
