@@ -50,5 +50,6 @@ packages:
   - rng-tools
   - firewalld.noarch
   - NetworkManager
+  - bind-utils
 power_state:
   mode: reboot
