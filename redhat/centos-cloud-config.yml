@@ -3,6 +3,7 @@ datasource_list: [ Openstack ]
 runcmd:
   - yum groupinstall "Development tools" -y
   - systemctl enable haveged; systemctl start haveged
+  - systemctl enable firewalld; systemctl start firewalld
   
 write_files:
   - path: /etc/hosts
@@ -49,5 +50,6 @@ packages:
   - rng-tools
   - firewalld.noarch
   - NetworkManager
+  - bind-utils
 power_state:
   mode: reboot
