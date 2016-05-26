@@ -51,5 +51,6 @@ packages:
   - firewalld.noarch
   - NetworkManager
   - bind-utils
+  - bash-completion
 power_state:
   mode: reboot
