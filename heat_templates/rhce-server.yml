@@ -13,7 +13,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: private_network
 
@@ -28,7 +28,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: private_network
         
@@ -43,7 +43,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: private_network
         
