@@ -15,7 +15,7 @@ resources:
       user_data:
         get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: private_network
+        - network: internal
 
   inst2:
     type: OS::Nova::Server
@@ -30,7 +30,7 @@ resources:
       user_data:
         get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: private_network
+        - network: internal
         
   inst3:
     type: OS::Nova::Server
@@ -45,20 +45,20 @@ resources:
       user_data:
         get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: private_network
+        - network: internal
         
   floating_ip1:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external_network
+      pool: external
   floating_ip2:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external_network
+      pool: external
   floating_ip3:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external_network
+      pool: external
       
   association1:
     type: OS::Nova::FloatingIPAssociation
