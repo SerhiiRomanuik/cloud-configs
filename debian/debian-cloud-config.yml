@@ -1,6 +1,6 @@
 #cloud-config
 runcmd:
-  - sleep 10
+  
   
 write_files:
   - path: /etc/hosts
@@ -17,7 +17,7 @@ write_files:
       |
         search ayinla.com
         domain ayinla.com
-        nameserver 8.8.4.4
+        nameserver 10.0.0.200
         nameserver 8.8.8.8
         
 users:
