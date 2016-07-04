@@ -1,6 +1,5 @@
 #cloud-config
-runcmd:
-  
+
   
 write_files:
   - path: /etc/hosts
@@ -36,6 +35,7 @@ packages:
   - ntp
   - python-pip
   - ruby
+  - bash-completion
   
 power_state:
   mode: reboot
