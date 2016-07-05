@@ -13,9 +13,9 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: ftp://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: internal
+        - network: int-net
 
   inst2:
     type: OS::Nova::Server
@@ -28,9 +28,9 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: ftp://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: internal
+        - network: int-net
         
   inst3:
     type: OS::Nova::Server
@@ -43,22 +43,22 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109:8080/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: ftp://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: internal
+        - network: int-net
         
   floating_ip1:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external
+      pool: ext-net
   floating_ip2:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external
+      pool: ext-net
   floating_ip3:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external
+      pool: ext-net
       
   association1:
     type: OS::Nova::FloatingIPAssociation
