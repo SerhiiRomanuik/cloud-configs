@@ -1,1 +1,45 @@
 
+#cloud-config
+datasource: [ Openstack ]
+  
+users:
+  - name: india
+    groups:
+      - sudo
+      - docker
+    ssh-authorized-keys: 
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzugBoyAh99fdD1sX30TxvZzsfrKGG0VntnyeRZTQFC+TvnUSX2Kpq2imUPaDl+FGIaczN6ewAhx27RaRjcA4DnJ6f4L1DhZaMqkAuSSmdeFmYaOPGn/czLsHmGxbgKGdlFQhYNkHmw2gH3svcJ+L54E9ot/xiTpGs4kqXl7+qNPW35eZwodrGkaWoK44iMVAY8stYxO99/2ypgrwNp7sI+1cK4fISFEEqaqb1tgBkNCjJzXgJF8K5kAH/QxyMRQBk8atMcipNju7FKEfz7hkyU/6k0oJXLhAgnxqjdHlCqNCgfvBkrehc7H7iCY8g5NuWSpevAvAFRkXTPSKIFxH9 india@localhost.localdomain
+
+#hostname: "coreos-server-1.ayinla.com"
+
+
+write_files:
+  - path: "/etc/resolv.conf"
+    permissions: "0644"
+    owner: root:root
+    content: |
+     search ayinla.com
+     domain ayinla.com
+     nameserver 8.8.8.8
+     nameserver 8.8.4.4
+     
+  - path: "/etc/hosts"
+    permissions: "0644"
+    owner: root:root
+    content:  |
+      10.0.0.200 openstack.ayinla.com
+      10.0.0.109 fedora.ayinla.com
+  - path: /etc/fleet/fleet.conf
+    owner: root:root
+    mode: 0644
+    content: |
+      etcd_servers=["http://127.0.0.1:2379"]
+      verbosity=3
+      agent_ttl="30s"
+      public-ip="$private_ipv4"
+      #metadata=$(hostname)
+
+# 127.0.0.1  coreos-server-1.ayinla.com
+        
+# curl http://169.254.169.254/latest/meta-data/
+# https://discovery.etcd.io/new?size=3
