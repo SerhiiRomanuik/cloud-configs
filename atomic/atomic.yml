@@ -21,7 +21,7 @@ write_files:
      search ayinla.com
      domain ayinla.com
      nameserver 8.8.8.8
-     nameserver 8.8.4.4
+     nameserver 10.0.0.200
      
   - path: "/etc/hosts"
     permissions: "0644"
@@ -29,17 +29,9 @@ write_files:
     content:  |
       10.0.0.200 openstack.ayinla.com
       10.0.0.109 fedora.ayinla.com
-  - path: /etc/fleet/fleet.conf
-    owner: root:root
-    mode: 0644
-    content: |
-      etcd_servers=["http://127.0.0.1:2379"]
-      verbosity=3
-      agent_ttl="30s"
-      public-ip="$private_ipv4"
-      #metadata=$(hostname)
 
-# 127.0.0.1  coreos-server-1.ayinla.com
+
+
         
 # curl http://169.254.169.254/latest/meta-data/
 # https://discovery.etcd.io/new?size=3
