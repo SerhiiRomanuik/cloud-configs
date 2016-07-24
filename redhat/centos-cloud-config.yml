@@ -37,9 +37,7 @@ packages:
   - git
   - kernel-devel
   - openssl-devel
-  - etcd
-  - kubernetes
-  - flannel
+  - java
   - vim
   - ntp
   - ruby
