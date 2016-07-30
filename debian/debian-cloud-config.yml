@@ -1,6 +1,5 @@
 #cloud-config
 
-  
 write_files:
   - path: /etc/hosts
     owner: root:root
