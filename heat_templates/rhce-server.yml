@@ -17,12 +17,12 @@ resources:
       name: vol-2
       size: 10
       
-   vol3:
+  vol3:
     type: OS::Cinder::Volume
     properties:
       availability_zone: nova
       description: volume for server 3
-      name: vo-3
+      name: vol-3
       size: 10
     
   inst1:
