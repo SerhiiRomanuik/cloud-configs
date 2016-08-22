@@ -6,14 +6,6 @@ runcmd:
   - systemctl enable firewalld; systemctl start firewalld
   
 write_files:
-  - path: /etc/hosts
-    owner: root:root
-    permissions: '0644'
-    content:
-      |
-        127.0.0.1  localhost
-        10.0.0.200 openstack.ayinla.com
-
   - path: /etc/resolv.conf
     owner: root:root
     permissions: '0644'
@@ -21,7 +13,7 @@ write_files:
       |
         search ayinla.com
         domain ayinla.com
-        nameserver 10.0.0.200
+        nameserver 10.1.1.200
         nameserver 8.8.8.8
         
 users:
