@@ -8,14 +8,14 @@ resources:
       availability_zone: nova
       description: volume for server 1
       name: volume-1
-      size: 2
+      size: 1
   vol2:
     type: OS::Cinder::Volume
     properties:
       availability_zone: nova
       description: volume for server 2
       name: volume-2
-      size: 2
+      size: 1
       
   vol3:
     type: OS::Cinder::Volume
@@ -23,7 +23,7 @@ resources:
       availability_zone: nova
       description: volume for server 3
       name: volume-3
-      size: 2
+      size: 1
     
   inst1:
     type: OS::Nova::Server
