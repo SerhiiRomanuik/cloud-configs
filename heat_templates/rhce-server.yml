@@ -82,7 +82,7 @@ resources:
       user_data:
         get_file: ftp://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-- network: int-net
+       - network: int-net
 
   floating_ip1:
     type: OS::Nova::FloatingIP
