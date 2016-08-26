@@ -69,7 +69,21 @@ resources:
         get_file: ftp://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: int-net
-        
+  inst4:
+    type: OS::Nova::Server
+    properties:
+      name: rhce-client
+      security_groups:
+        - default
+      key_name: cloudkey
+      flavor: m1.medium
+      image: centos-7
+      user_data_format: RAW
+      user_data:
+        get_file: ftp://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
+      networks:
+- network: int-net
+
   floating_ip1:
     type: OS::Nova::FloatingIP
     properties:
@@ -79,6 +93,10 @@ resources:
     properties:
       pool: ext-net
   floating_ip3:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: ext-net
+  floating_ip4:
     type: OS::Nova::FloatingIP
     properties:
       pool: ext-net
@@ -98,3 +116,8 @@ resources:
     properties:
       floating_ip: { get_resource: floating_ip3 }
       server_id: { get_resource: inst3}
+  association4:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip4 }
+      server_id: { get_resource: inst4}
