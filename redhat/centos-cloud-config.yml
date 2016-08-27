@@ -43,5 +43,6 @@ packages:
   - NetworkManager
   - bind-utils
   - bash-completion
+  - lsof
 power_state:
   mode: reboot
