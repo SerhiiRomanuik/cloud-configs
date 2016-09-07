@@ -5,17 +5,7 @@ runcmd:
   - systemctl enable haveged; systemctl start haveged
   - systemctl enable firewalld; systemctl start firewalld
   
-write_files:
-  - path: /etc/resolv.conf
-    owner: root:root
-    permissions: '0644'
-    content:
-      |
-        search ayinla.com
-        domain ayinla.com
-        nameserver 10.1.1.200
-        nameserver 8.8.8.8
-        
+
 users:
   - name: india
     sudo: ALL=(ALL) NOPASSWD:ALL
