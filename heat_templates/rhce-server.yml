@@ -36,7 +36,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: http://10.0.0.150/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: int-net
 
@@ -51,7 +51,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: http://10.0.0.150/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: int-net
         
@@ -66,7 +66,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: http://10.0.0.150/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: int-net
   inst4:
@@ -80,7 +80,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.100/cloud-configs/redhat/centos-cloud-config.yml
+        get_file: http://10.0.0.150/cloud-configs/redhat/centos-cloud-config.yml
       networks:
        - network: int-net
 
