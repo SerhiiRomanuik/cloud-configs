@@ -34,5 +34,6 @@ packages:
   - bind-utils
   - bash-completion
   - lsof
+  - sssd
 power_state:
   mode: reboot
