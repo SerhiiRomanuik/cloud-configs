@@ -5,7 +5,6 @@ runcmd:
   - systemctl enable haveged; systemctl start haveged
   - systemctl enable firewalld; systemctl start firewalld
   
-
 users:
   - name: india
     sudo: ALL=(ALL) NOPASSWD:ALL
