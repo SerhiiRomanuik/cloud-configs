@@ -1,0 +1,11 @@
+resources:
+  ext-net:
+    type: OS::Neutron::Net
+  ext-subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      network_id: { get_resource: ext-net }
+      cidr: "10.0.0.1/8"
+      dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
+      ip_version: 4
+  
