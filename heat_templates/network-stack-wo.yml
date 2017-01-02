@@ -6,6 +6,7 @@ resources:
     properties:
       name: ext-net
       network_type: flat
+      physical_network: extnet
       router_external: true
   ext-subnet:
     type: OS::Neutron::Subnet
