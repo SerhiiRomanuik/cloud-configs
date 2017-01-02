@@ -31,5 +31,7 @@ resources:
       
   router1:
     type: OS::Neutron::Router
+    properties:
+      name: router1
    
     
