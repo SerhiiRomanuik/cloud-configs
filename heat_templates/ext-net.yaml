@@ -29,6 +29,5 @@ resources:
       
   router1:
     type: OS::Neutron::Router
-    properties:
-      external_gateway_info: { network: ext-net }
+   
     
