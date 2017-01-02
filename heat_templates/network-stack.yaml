@@ -1,11 +1,23 @@
 heat_template_version: 2016-10-14
 description: create networks 
 resources:
-  
+  red-net:
+    type: OS::Neutron::Net
+    properties:
+      name: red-net
+  red-subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      name: red-subnet
+      network_id: { get_resource: red-net }
+      cidr: "192.168.2.0/24"
+      dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
+      ip_version: 4
+      enable_dhcp: true
   
   int-net:
     type: OS::Neutron::Net
-  int-sunet:
+  int-subnet:
     type: OS::Neutron::Subnet
     properties:
       network_id: { get_resource: int-net }
