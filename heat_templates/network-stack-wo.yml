@@ -10,6 +10,7 @@ resources:
   ext-subnet:
     type: OS::Neutron::Subnet
     properties:
+      name: ext-subnet
       enable_dhcp: false
       network_id: { get_resource: ext-net }
       cidr: "10.0.0.1/8"
