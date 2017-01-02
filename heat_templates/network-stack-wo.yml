@@ -1,0 +1,37 @@
+heat_template_version: 2016-10-14
+description: create networks 
+resources:
+  ext-net:
+    type: OS::Neutron::ProviderNet
+    properties:
+      name: ext-net
+      network_type: flat
+      router_external: true
+  ext-subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      enable_dhcp: false
+      network_id: { get_resource: ext-net }
+      cidr: "10.0.0.1/8"
+      gateway_ip: 10.0.0.1
+   
+      dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
+      ip_version: 4
+  
+  int-net:
+    type: OS::Neutron::Net
+  int-sunet:
+    type: OS::Neutron::Subnet
+    properties:
+      network_id: { get_resource: int-net }
+      cidr: "192.168.1.0/24"
+      dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
+      ip_version: 4
+      enable_dhcp: true
+      
+  router1:
+    type: OS::Neutron::Router
+    properties:
+      name: router1
+   
+    
