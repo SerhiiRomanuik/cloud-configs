@@ -20,9 +20,12 @@ resources:
   
   int-net:
     type: OS::Neutron::Net
-  int-sunet:
+    properties:
+      name: int-net
+  int-subnet:
     type: OS::Neutron::Subnet
     properties:
+      name: int-subnet
       network_id: { get_resource: int-net }
       cidr: "192.168.1.0/24"
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
