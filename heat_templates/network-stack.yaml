@@ -30,5 +30,9 @@ resources:
     type: OS::Neutron::Router
     properties:
       name: router1
-   
+  int-net-router-interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router_id: { get_resource: router1 }
+      subnet: { get_resource: int-subnet }
     
