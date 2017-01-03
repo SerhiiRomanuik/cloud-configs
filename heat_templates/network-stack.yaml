@@ -17,6 +17,8 @@ resources:
   
   int-net:
     type: OS::Neutron::Net
+    properties:
+      name: int-net
   int-subnet:
     type: OS::Neutron::Subnet
     properties:
@@ -25,6 +27,7 @@ resources:
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
       ip_version: 4
       enable_dhcp: true
+      name: int-subnet
       
   router1:
     type: OS::Neutron::Router
