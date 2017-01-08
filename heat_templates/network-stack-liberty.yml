@@ -7,7 +7,7 @@ resources:
       name: ext-net
       network_type: flat
       physical_network: extnet
-      router_external: true
+     
       shared: false
   ext-subnet:
     type: OS::Neutron::Subnet
@@ -32,7 +32,9 @@ resources:
     properties:
       name: int-subnet
       network_id: { get_resource: int-net }
-      cidr: "192.168.1.0/24"
+      cidr: 
+        constraints:
+        - {custom_constraint: "192.168.1.0/24"}
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
       ip_version: 4
       enable_dhcp: true
