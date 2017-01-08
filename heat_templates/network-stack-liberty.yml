@@ -6,8 +6,8 @@ resources:
     properties:
       name: ext-net
       network_type: flat
-      physical_network: extnet
-     
+      physical_network: physnet1
+      
       shared: false
   ext-subnet:
     type: OS::Neutron::Subnet
