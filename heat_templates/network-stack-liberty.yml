@@ -1,4 +1,4 @@
-heat_template_version: 2015-10-15
+heat_template_version: 2015-04-30
 description: create networks 
 resources:
   ext-net:
@@ -18,7 +18,9 @@ resources:
       network_id: { get_resource: ext-net }
       cidr: "10.0.0.1/8"
       gateway_ip: 10.0.0.1
-
+      allocation_pools:
+        - start: 10.10.10.1
+          end: 10.10.10.200
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
       ip_version: 4
       enable_dhcp: false
@@ -32,6 +34,7 @@ resources:
     properties:
       name: int-subnet
       network_id: { get_resource: int-net }
+      cidr: "192.168.1.0/24"
       ip_version: 4
       enable_dhcp: true
       
