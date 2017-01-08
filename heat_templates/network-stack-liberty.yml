@@ -18,9 +18,7 @@ resources:
       network_id: { get_resource: ext-net }
       cidr: "10.0.0.1/8"
       gateway_ip: 10.0.0.1
-      allocation_pools:
-        - start: 10.10.10.1
-          end: 10.10.10.200
+ 
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
       ip_version: 4
       enable_dhcp: false
