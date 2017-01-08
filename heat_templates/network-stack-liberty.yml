@@ -18,7 +18,7 @@ resources:
       network_id: { get_resource: ext-net }
       cidr: "10.0.0.1/8"
       gateway_ip: 10.0.0.1
-      allocation_pools
+      allocation_pools:
         - start: 10.10.10.1
           end: 10.10.10.200
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
@@ -33,9 +33,8 @@ resources:
     properties:
       name: int-subnet
       network_id: { get_resource: int-net }
-      cidr: 
-        constraints:
-        - {custom_constraint: "192.168.1.0/24"}
+      cidr: "192.168.1.0/24"
+      gateway_ip: 192.168.1.1
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
       ip_version: 4
       enable_dhcp: true
