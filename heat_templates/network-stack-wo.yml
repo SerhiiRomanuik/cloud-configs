@@ -55,6 +55,8 @@ resources:
     type: OS::Neutron::Router
     properties:
       name: router1
+      external_gateway_info: 
+        network: {get_resource: ext-net }
 
   int-net-router-interface:
     type: OS::Neutron::RouterInterface
