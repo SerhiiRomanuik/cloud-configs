@@ -36,6 +36,20 @@ resources:
       dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
       ip_version: 4
       enable_dhcp: true
+  
+  red-net:
+    type: OS::Neutron::Net
+    properties:
+      name: red-net
+  red-subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      name: red-subnet
+      network_id: { get_resource: red-net }
+      cidr: "192.168.2.0/24"
+      dns_nameservers: [ "10.1.1.200", "8.8.8.8" ]
+      ip_version: 4
+      enable_dhcp: true
       
   router1:
     type: OS::Neutron::Router
@@ -48,4 +62,9 @@ resources:
       router_id: { get_resource: router1 }
       subnet: { get_resource: int-subnet }
    
-    
+  red-net-router-interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router_id: { get_resource: router1 }
+      subnet: { get_resource: red-subnet }
+   
