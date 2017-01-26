@@ -6,7 +6,7 @@ runcmd:
   - systemctl enable firewalld; systemctl start firewalld
   
 users:
-  - name: india
+  - name: dola
     sudo: ALL=(ALL) NOPASSWD:ALL
     groups: wheel
     ssh-authorized-keys:
