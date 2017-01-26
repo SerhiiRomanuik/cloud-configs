@@ -1,7 +1,7 @@
 #cloud-config
 
 users:
-  - name: india
+  - name: dola
     groups: sudo
     passswd: $1$gaPWwlFb$dVu5d6wjS089vIjhqQ2VB1
     sudo: ALL=(ALL) NOPASSWD:ALL
