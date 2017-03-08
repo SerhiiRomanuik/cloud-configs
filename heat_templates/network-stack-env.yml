@@ -1,5 +1,5 @@
 parameters:
-  ext_subnet_cidr: "10.0.0.1/8"
+  ext_subnet_cidr: "10.0.0.0/8"
   ext_subnet_gateway: 10.0.0.1
   int_subnet_cidr: "192.168.1.0/24"
   dns_servers:  [ "10.1.1.200", "8.8.8.8" ]
