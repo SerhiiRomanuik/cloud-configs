@@ -46,5 +46,3 @@ resources:
     properties:
       router_id: { get_resource: router1 }
       subnet: { get_resource: int-subnet }
-   
-    
