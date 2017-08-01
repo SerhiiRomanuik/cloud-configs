@@ -9,14 +9,14 @@ resources:
       name: kube-master
       security_groups:
         - default
-      key_name: cloudkey
+      
       flavor: m1.medium
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/kubernetes/kube-master-config.yml
+        get_file: http://10.0.0.200/redhat/centos-cloud-config.yml
       networks:
-        - network: private_network
+        - network: 	int-net
 
   kube-node-1:
     type: OS::Nova::Server
@@ -24,14 +24,14 @@ resources:
       name: kube-node-1
       security_groups:
         - default
-      key_name: cloudkey
+      
       flavor: m1.medium
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/kubernetes/kube-minions-config.yml
+        get_file: http://10.0.0.200/redhat/centos-cloud-config.yml
       networks:
-        - network: private_network
+        - network: 	int-net
   
   kube-node-2:
     type: OS::Nova::Server
@@ -39,27 +39,27 @@ resources:
       name:  kube-node-2
       security_groups:
         - default
-      key_name: cloudkey
+      
       flavor: m1.medium
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.109/kubernetes/kube-minions-config.yml
+        get_file: http://10.0.0.200/redhat/centos-cloud-config.yml
       networks:
-        - network: private_network
+        - network: 	int-net
   
   floating_ip1:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external_network
+      pool: 	ext-net
   floating_ip2:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external_network
+      pool: 	ext-net
   floating_ip3:
     type: OS::Nova::FloatingIP
     properties:
-      pool: external_network
+      pool: 	ext-net
       
   association1:
     type: OS::Nova::FloatingIPAssociation
