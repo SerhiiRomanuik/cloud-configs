@@ -3,7 +3,7 @@ heat_template_version: 2017-02-24
 description: create a server
 
 resources:
- etcd-server:
+  etcd-server:
     type: OS::Nova::Server
     properties:
       name: etcd-server
