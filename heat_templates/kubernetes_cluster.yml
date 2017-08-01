@@ -14,7 +14,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.200/redhat/centos-cloud-config.yml
+        get_file: file:///home/dola/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: 	int-net
 
@@ -29,7 +29,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.200/redhat/centos-cloud-config.yml
+        get_file: file:///home/dola/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: 	int-net
   
@@ -44,7 +44,7 @@ resources:
       image: centos-7
       user_data_format: RAW
       user_data:
-        get_file: http://10.0.0.200/redhat/centos-cloud-config.yml
+        get_file: file:///home/dola/cloud-configs/redhat/centos-cloud-config.yml
       networks:
         - network: 	int-net
   
