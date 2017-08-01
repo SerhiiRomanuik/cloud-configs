@@ -1,5 +1,5 @@
 
-heat_template_version: 2015-10-15
+heat_template_version: 2017-02-24
 description: create a server
 
 resources:
@@ -16,7 +16,7 @@ resources:
       user_data:
         get_file: file:///home/dola/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: 	int-net
+        - network: int-net
 
   kube-node-1:
     type: OS::Nova::Server
@@ -31,7 +31,7 @@ resources:
       user_data:
         get_file: file:///home/dola/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: 	int-net
+        - network: int-net
   
   kube-node-2:
     type: OS::Nova::Server
@@ -46,7 +46,7 @@ resources:
       user_data:
         get_file: file:///home/dola/cloud-configs/redhat/centos-cloud-config.yml
       networks:
-        - network: 	int-net
+        - network: int-net
   
   floating_ip1:
     type: OS::Nova::FloatingIP
