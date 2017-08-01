@@ -3,6 +3,20 @@ heat_template_version: 2017-02-24
 description: create a server
 
 resources:
+ etcd-server:
+    type: OS::Nova::Server
+    properties:
+      name: etcd-server
+      security_groups:
+        - default
+      flavor: m1.medium
+      image: centos-7
+      user_data_format: RAW
+      user_data:
+        get_file: file:///home/dola/cloud-configs/redhat/centos-cloud-config.yml
+      networks:
+        - network: int-net
+
   kube-master:
     type: OS::Nova::Server
     properties:
@@ -60,6 +74,10 @@ resources:
     type: OS::Nova::FloatingIP
     properties:
       pool: 	ext-net
+  floating_ip4:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: 	ext-net
       
   association1:
     type: OS::Nova::FloatingIPAssociation
@@ -76,3 +94,9 @@ resources:
     properties:
       floating_ip: { get_resource: floating_ip3 }
       server_id: { get_resource: kube-node-2}
+
+  association4:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip4 }
+      server_id: { get_resource: etcd-server}
